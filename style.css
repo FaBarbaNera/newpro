@@ -197,11 +197,11 @@ footer {
 .cta-btn {
     display: inline-block;
     padding: 15px 30px; /* Spaziatura interna */
-    background-color: #0077b6; /* Colore di sfondo blu */
-    color: white; /* Colore del testo */
+    background-color: #ffcc00; /* Colore di sfondo blu */
+    color: #333; /* Colore del testo */
     text-decoration: none;
-    font-size: 1.2em;
-    border-radius: 8px;
+    font-size: 1.1em;
+    border-radius: 25px;
     text-align: center;
     transition: background-color 0.3s ease;
     margin-top: 30px; /* Aggiungi questo per abbassare il bottone */
@@ -211,18 +211,18 @@ footer {
     background-color: #0099cc; /* Colore di sfondo quando il mouse passa sopra */
 }
 #menu-intro {
-    padding-top: 70px; /* Spazio extra sopra il contenuto */
+    padding-top: 50px; /* Spazio extra sopra il contenuto */
     text-align: center;
 }
 
 .cta-btn {
     display: inline-block;
     padding: 15px 30px;
-    background-color: #0077b6;
-    color: white;
+    background-color: #f8db01;
+    color: rgb(243, 0, 0);
     text-decoration: none;
     font-size: 1.2em;
-    border-radius: 8px;
+    border-radius: 25px;
     text-align: center;
     transition: background-color 0.3s ease;
     margin-top: 30px; /* Abbassa il bottone ulteriormente */
@@ -265,6 +265,16 @@ footer {
 #whatsapp-button:hover {
     background-color: #128c7e; /* Colore WhatsApp scuro */
 }
+#order-intro {
+    text-align: center; /* Centra il testo orizzontalmente */
+    padding: 50px 20px; /* Aggiungi un po' di spazio sopra e sotto il testo */
+}
+
+#order-intro h1, #order-intro p {
+    margin: 0;
+    padding: 10px 0; /* Aggiungi un po' di spazio tra il titolo e il paragrafo */
+}
+
 
 
 
@@ -522,3 +532,87 @@ footer {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+
+
+
+
+
+
+
+
+
+
+/* Stile per il logo sopra il titolo */
+#intro .logo {
+    text-align: center;  /* Centra il logo */
+    margin-bottom: 20px;  /* Spazio sotto il logo */
+}
+
+#intro .logo img {
+    height: 200px; /* Imposta l'altezza del logo */
+    width: auto; /* Mantiene le proporzioni originali */
+}
+
+/* Stile per il testo di introduzione */
+#intro h1 {
+    font-size: 2.8em;
+    color: #0077b6; /* Blu mare */
+    text-align: center;
+    margin-bottom: 20px; /* Spazio sotto il titolo */
+}
+
+#intro p {
+    font-size: 1.2em;
+    color: #555;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Stile per il bottone */
+.cta-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #ffcc00;
+    color: #333;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 25px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #ff9900;
+}
+
+
+#logo {
+    display: block;
+    margin: 0 auto 20px auto;  /* Centra l'immagine e aggiungi uno spazio sotto */
+    max-width: 200px;  /* Imposta una larghezza massima */
+}
+
+#order-intro img#logo {
+    display: block;
+    margin: 0 auto 20px auto; /* Centra l'immagine sopra il titolo con spazio sotto */
+    max-width: 200px; /* Limita la larghezza del logo, puoi modificarla a piacere */
+}
+#ombrelloni-intro img#logo {
+    display: block;
+    margin: 0 auto 20px auto; /* Centra l'immagine sopra il titolo con spazio sotto */
+    max-width: 200px; /* Limita la larghezza del logo, puoi modificarla a piacere */
+}
+
+#recensioni-intro img#logo {
+    display: block;
+    margin: 0 auto 20px auto; /* Centra l'immagine sopra il titolo con spazio sotto */
+    max-width: 200px; /* Limita la larghezza del logo, puoi modificarla a piacere */
+}
+#contatti-intro img#logo {
+    display: block;
+    margin: 0 auto 20px auto; /* Centra l'immagine sopra il titolo con spazio sotto */
+    max-width: 200px; /* Limita la larghezza del logo, puoi modificarla a piacere */
+}
+
+
