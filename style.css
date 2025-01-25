@@ -193,6 +193,44 @@ footer {
 #order-now .cta-btn:hover {
     background-color: #ff9900;
 }
+/* Modifica al pulsante (cta-btn) per abbassarlo */
+.cta-btn {
+    display: inline-block;
+    padding: 15px 30px; /* Spaziatura interna */
+    background-color: #0077b6; /* Colore di sfondo blu */
+    color: white; /* Colore del testo */
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 8px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    margin-top: 30px; /* Aggiungi questo per abbassare il bottone */
+}
+
+.cta-btn:hover {
+    background-color: #0099cc; /* Colore di sfondo quando il mouse passa sopra */
+}
+#menu-intro {
+    padding-top: 50px; /* Spazio extra sopra il contenuto */
+    text-align: center;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #0077b6;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 8px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    margin-top: 30px; /* Abbassa il bottone ulteriormente */
+}
+
+.cta-btn:hover {
+    background-color: #0099cc;
+}
 
 
 
