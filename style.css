@@ -8,9 +8,9 @@
 /* Corpo della pagina */
 body {
     font-family: 'Arial', sans-serif;
-    line-height: 1.6;
+    line-height: 1.8;
     background-color: #f0f8ff; /* Azzurro chiaro simile al cielo */
-    color: #333;
+    color: #0077b6;
 }
 
 /* Header */
@@ -110,6 +110,7 @@ footer {
     header nav ul {
         flex-direction: column;
         gap: 15px;
+        margin-left: 20px;
     }
 
     #intro h1 {
@@ -124,22 +125,82 @@ footer {
         padding: 12px 25px;
         font-size: 1.2em;
     }
+    #ombrelloni-intro {
+        margin-left: 10px;  /* Riduci il margine sinistro sui dispositivi mobili */
+        margin-right: 10px; /* Riduci il margine destro sui dispositivi mobili */
+    }
+
+    .ombrellone {
+        margin-left: 10px;  /* Riduci il margine sinistro sugli ombrelloni */
+        margin-right: 10px; /* Riduci il margine destro sugli ombrelloni */
+    }
+    #review-container {
+        .review-container {
+            margin-left: 15px;  /* Aggiungi margine a sinistra */
+            margin-right: 15px; /* Aggiungi margine a destra */
+            width: 90%;  /* La larghezza del contenitore diventa il 100% */
+            padding: 20px; /* Riduci il padding per dispositivi mobili */
+        }
+    }
+
+    .carousel-image {
+        width: 100%;  /* Le immagini si adattano alla larghezza del contenitore */
+        height: 100%;  /* Le immagini occupano tutta l'altezza disponibile */
+    }
+     /* Ridurre la dimensione del testo delle descrizioni e dei titoli */
+     .menu-category h3 {
+        font-size: 1.0em;          /* Riduce la dimensione del titolo */
+    }
+
+    .menu-category .product-info p {
+        font-size: 0.9rem;         /* Riduce la dimensione della descrizione */
+    }
+
+    .menu-category .product-info .price {
+        font-size: 1.1rem;         /* Riduce il prezzo */
+    }
+
+    .menu-category li {
+        padding: 10px 0;           /* Riduce il padding per ciascun elemento */
+    }
+    .menu-category ul {
+        max-width: none;   /* Rimuove la larghezza massima */
+        width: 100%;       /* Assicura che la lista occupi tutta la larghezza */
+    }
 }
+
+
+
 
 
 
 
 /* Stili per il menù */
-#menu-intro {
+#menu-intro h1 {
+    font-size: 2.5rem;
+    color: #0077b6; /* Assumendo che il colore scuro sia quello desiderato */
+    font-family: 'Roboto', sans-serif;
     text-align: center;
-    margin-bottom: 40px;
+    margin-top: 20px;
 }
 
-#menu-categories {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+/* Alternativa con classi specifiche */
+.menu-text {
+    color: #ffb300; /* Colore per il primo paragrafo */
 }
+
+.discount-text {
+    color: #ff0000; /* Colore per il secondo paragrafo */
+}
+
+
+.menu-category {
+    width: 30%;
+    margin-bottom: 30px;
+    margin-left: 20px;  /* Margine sinistro */
+    margin-right: 20px;  /* Margine destro */
+}
+
 
 .menu-category {
     width: 30%;
@@ -147,8 +208,9 @@ footer {
 }
 
 .menu-category h2 {
-    font-size: 2.5em;
-    color: #0077b6; /* Blu mare */
+    font-size: 2.0em;
+    color: #ff0000; /* Blu mare */
+    text-align: center;   
     margin-bottom: 20px;
 }
 
@@ -156,24 +218,34 @@ footer {
     list-style: none;
 }
 
+/* Modifica il padding e margine della lista (li) per ridurre gli spazi */
 .menu-category li {
-    margin-bottom: 20px;
+    padding: 8px 0;              /* Riduce il padding verticale per ogni elemento */
+    font-size: 1rem;             /* Mantiene una dimensione del testo ragionevole */
+    border-bottom: 1px solid #ccc;
 }
 
 .menu-category h3 {
-    font-size: 1.8em;
+    font-size: 1.4em;            /* Modifica per rendere il testo del titolo più piccolo */
+    margin: 5px 0;    
     color: #0077b6;
 }
 
 .menu-category p {
-    font-size: 1.1em;
-    color: #555;
+    font-size: 0.9rem;           /* Riduce ulteriormente la dimensione del testo */
+    width: 90%;                  /* Mantiene una larghezza decente per le descrizioni */
+    margin: 5px auto;            /* Riduce lo spazio verticale tra il nome e la descrizione */
+    line-height: 1.3;            /* Riduce lo spazio tra le righe */
+    text-align: center;  
 }
+
 
 .price {
     font-weight: bold;
     color: #ffcc00; /* Giallo sabbia */
-    font-size: 1.2em;
+    font-size: 1.2rem;           /* Riduce la dimensione del prezzo */
+    text-align: right;           /* Mantiene il prezzo a destra */
+    margin-top: 5px;  
 }
 
 #order-now {
@@ -261,19 +333,57 @@ footer {
     text-decoration: none;
     border-radius: 25px;
 }
+/* Centrare il tasto all'interno del contenitore */
+#order-details {
+    text-align: center; /* Centra tutti gli elementi figli (incluso il tasto) */
+}
+
+#whatsapp-button {
+    display: inline-block; /* Rende il tasto inline-block per centrarlo correttamente */
+    background-color: #25D366; /* Verde WhatsApp */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 20px;  /* Aggiungi un po' di spazio sopra il bottone */
+}
+
 
 #whatsapp-button:hover {
     background-color: #128c7e; /* Colore WhatsApp scuro */
 }
 #order-intro {
-    text-align: center; /* Centra il testo orizzontalmente */
-    padding: 50px 20px; /* Aggiungi un po' di spazio sopra e sotto il testo */
+    padding-top: 50px; /* Spazio extra sopra il contenuto */
+    text-align: center;
 }
 
-#order-intro h1, #order-intro p {
-    margin: 0;
-    padding: 10px 0; /* Aggiungi un po' di spazio tra il titolo e il paragrafo */
+#order-intro h1 {
+    font-size: 2.5rem; /* Puoi mantenere la stessa dimensione del titolo */
+    color: #0077b6; /* Colore blu mare, come in #menu-intro */
+    font-family: 'Roboto', sans-serif; /* Stessa font */
+    text-align: center;
+    margin-top: 20px;
 }
+
+.cta-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #f8db01; /* Giallo sabbia */
+    color: rgb(243, 0, 0); /* Colore rosso */
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 25px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    margin-top: 30px; /* Abbassa il pulsante come in #menu-intro */
+}
+
+.cta-btn:hover {
+    background-color: #0099cc; /* Cambia quando il mouse passa sopra */
+}
+
 
 
 
@@ -285,6 +395,66 @@ footer {
     text-align: center;
     margin-bottom: 40px;
 }
+.sconto-text {
+    color: #ff0000; /* Cambia questo con il colore che preferisci */
+    font-weight: bold; /* Se vuoi, puoi anche rendere il testo in grassetto */
+}
+
+
+/* Modifica l'aspetto dell'input per il numero ombrellone */
+#ombrellone-number {
+    width: 100%; /* Occupa tutta la larghezza disponibile */
+    max-width: 300px; /* Limita la larghezza massima */
+    padding: 10px; /* Aggiungi padding per il testo */
+    font-size: 16px; /* Aumenta la dimensione del testo */
+    border: 2px solid #ccc; /* Bordo grigio chiaro */
+    border-radius: 5px; /* Angoli arrotondati */
+    background-color: #f9f9f9; /* Colore di sfondo chiaro */
+    transition: all 0.3s ease; /* Transizione per un effetto fluido quando cambia */
+}
+
+/* Modifica del bordo quando l'input è attivo (focus) */
+#ombrellone-number:focus {
+    border-color: #007bff; /* Bordo blu quando selezionato */
+    background-color: #e6f7ff; /* Colore di sfondo chiaro quando in focus */
+    outline: none; /* Rimuove la bordatura predefinita */
+}
+
+/* Placeholder (testo indicativo all'interno dell'input) */
+#ombrellone-number::placeholder {
+    color: #888; /* Colore del testo del placeholder */
+    font-style: italic; /* Rendilo in corsivo */
+}
+/* Aggiungi spazio sopra il testo del paragrafo */
+.whatsapp-info {
+    margin-top: 20px;  /* Distanza tra l'input e il testo */
+    font-size: 14px;   /* Dimensione del testo */
+    color: #333;       /* Colore del testo (puoi scegliere il colore che preferisci) */
+    text-align: center; /* Centra il testo orizzontalmente */
+    font-style: italic;  /* Puoi anche aggiungere il corsivo */
+    padding: 10px 0;   /* Distanza interna tra il testo e il bordo */
+    background-color: #f0f0f0; /* Colore di sfondo chiaro per evidenziare il testo */
+    border-radius: 5px;  /* Angoli arrotondati per il background */
+}
+
+/* Se vuoi personalizzare il tasto WhatsApp */
+#whatsapp-button {
+    display: inline-block;
+    background-color: #25D366;  /* Verde tipico di WhatsApp */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 20px;  /* Aggiungi un po' di spazio sopra il bottone */
+}
+
+#whatsapp-button:hover {
+    background-color: #128C7E; /* Colore verde scuro quando si passa sopra */
+    transition: background-color 0.3s ease;
+}
+
 
 #ombrelloni-intro h1 {
     font-size: 2.5em;
@@ -296,6 +466,8 @@ footer {
     flex-direction: column;
     gap: 30px;
     text-align: center;
+    margin-left: 20px;  /* Margine sinistro per l'intero contenitore */
+    margin-right: 20px; /* Margine destro per l'intero contenitore */
 }
 
 .ombrellone {
@@ -305,6 +477,7 @@ footer {
     border: 2px solid #0077b6;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
 }
 
 .ombrellone:hover {
@@ -333,7 +506,6 @@ footer {
     color: #0077b6;
     font-weight: bold;
 }
-
 
 
 
@@ -446,6 +618,7 @@ footer {
 
 
 
+
 /* Sezione Contatti */
 #contatti {
     text-align: center;
@@ -543,21 +716,14 @@ footer {
 
 
 
-/* Stile per il logo sopra il titolo */
-#intro .logo {
-    text-align: center;  /* Centra il logo */
-    margin-bottom: 20px;  /* Spazio sotto il logo */
-}
 
-#intro .logo img {
-    height: 200px; /* Imposta l'altezza del logo */
-    width: auto; /* Mantiene le proporzioni originali */
-}
+
+
 
 /* Stile per il testo di introduzione */
 #intro h1 {
     font-size: 2.8em;
-    color: #0077b6; /* Blu mare */
+    color: #ffcc00; /* Blu mare */
     text-align: center;
     margin-bottom: 20px; /* Spazio sotto il titolo */
 }
@@ -587,32 +753,277 @@ footer {
 }
 
 
+
+
+
+/* Stili generali per il logo */
 #logo {
     display: block;
-    margin: 0 auto 20px auto;  /* Centra l'immagine e aggiungi uno spazio sotto */
+    margin: 0 auto 20px auto;  /* Centra l'immagine sopra il titolo con uno spazio sotto */
     max-width: 200px;  /* Imposta una larghezza massima */
 }
 
-#order-intro img#logo {
-    display: block;
-    margin: 0 auto 20px auto; /* Centra l'immagine sopra il titolo con spazio sotto */
-    max-width: 200px; /* Limita la larghezza del logo, puoi modificarla a piacere */
-}
-#ombrelloni-intro img#logo {
-    display: block;
-    margin: 0 auto 20px auto; /* Centra l'immagine sopra il titolo con spazio sotto */
-    max-width: 200px; /* Limita la larghezza del logo, puoi modificarla a piacere */
-}
-
-#recensioni-intro img#logo {
-    display: block;
-    margin: 0 auto 20px auto; /* Centra l'immagine sopra il titolo con spazio sotto */
-    max-width: 200px; /* Limita la larghezza del logo, puoi modificarla a piacere */
-}
+/* Sezione intro */
+#intro .logo img,
+#order-intro img#logo,
+#menu-intro img#logo,
+#ombrelloni-intro img#logo,
+#recensioni-intro img#logo,
 #contatti-intro img#logo {
     display: block;
-    margin: 0 auto 20px auto; /* Centra l'immagine sopra il titolo con spazio sotto */
-    max-width: 200px; /* Limita la larghezza del logo, puoi modificarla a piacere */
+    margin: 0 auto 20px auto;  /* Centra l'immagine sopra il titolo con spazio sotto */
+    max-width: 200px;  /* Imposta una larghezza massima */
+}
+
+/* Sezione Intro */
+#intro {
+    padding-top: 50px; /* Spazio extra sopra il contenuto */
+    text-align: center;
+}
+/* Sezione menu */
+#menu {
+    padding-top: 50px; /* Spazio extra sopra il contenuto */
+    text-align: center;
+}
+
+/* Sezione Ordine */
+#order-intro {
+    padding-top: 50px; /* Spazio extra sopra il contenuto */
+    text-align: center;
+}
+
+/* Sezione Ombrelloni */
+#ombrelloni-intro {
+    padding-top: 50px; /* Spazio extra sopra il contenuto */
+    text-align: center;
+}
+
+/* Sezione Recensioni */
+#recensioni-intro {
+    padding-top: 50px; /* Spazio extra sopra il contenuto */
+    text-align: center;
+}
+
+/* Sezione Contatti */
+#contatti-intro {
+    padding-top: 50px; /* Spazio extra sopra il contenuto */
+    text-align: center;
 }
 
 
+
+#review-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 90%;  /* Larghezza del contenitore */
+    max-width: 600px;  /* Larghezza massima */
+    margin: 0 auto;  /* Centra il contenitore */
+    padding: 30px;
+    background-color: #ffffff;
+    border: 2px solid #0077b6;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    height: 400px;  /* Altezza fissa del contenitore */
+    overflow: hidden;  /* Nasconde le parti fuori dal contenitore */
+    margin-top: 20px;  /* Aggiungi margine sopra */
+    margin-bottom: 20px;  /* Aggiungi margine sotto */
+}
+
+.review-container {
+    display: flex;
+    justify-content: center;  /* Centra le immagini orizzontalmente */
+    align-items: center;  /* Centra le immagini verticalmente */
+    width: 100%;  /* Usa tutta la larghezza del contenitore */
+    transition: transform 1s ease-in-out;  /* Transizione per lo scorrimento */
+}
+
+.carousel-image {
+    width: 100%;  /* Ogni immagine occupa tutta la larghezza disponibile */
+    height: 100%;  /* Ogni immagine occupa tutta l'altezza disponibile */
+    object-fit: cover;  /* Mantieni il rapporto di aspetto e riempi il contenitore senza distorcere */
+    display: none;  /* Nascondi tutte le immagini inizialmente */
+}
+
+.carousel-image:first-child {
+    display: block;  /* Mostra la prima immagine all'inizio */
+}
+
+
+
+
+/* Stile per le voci del menu */
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;  /* Imposta il contesto per l'elemento */
+    padding-left: 20px;  /* Aggiungi spazio tra il testo e il puntino */
+}
+
+/* Aggiungi il puntino accanto al testo */
+header nav a::before {
+    content: '•';  /* Puntino prima del testo */
+    position: absolute;
+    left: 0;  /* Posiziona il puntino all'inizio */
+    top: 50%;  /* Posiziona il puntino al centro verticalmente */
+    transform: translateY(-50%);  /* Centra verticalmente */
+    font-size: 2em;  /* Imposta la dimensione del puntino */
+    color: #ffcc00;  /* Colore del puntino */
+}
+
+/* Contenitore principale del menu */
+#bar-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Categoria del menu (es. Bevande, Birre) */
+.menu-category {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* Titolo della categoria (Bevande, Birre...) */
+.menu-category h2 {
+    font-size: 2.5em;
+    color: #0077b6;
+    margin-bottom: 15px;
+}
+
+/* Lista degli elementi del menu */
+.menu-category ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Elemento della lista (li) */
+.menu-category li {
+    display: flex;
+    flex-direction: column; /* Inizialmente disposizione in colonna */
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #0077b6; /* Linea azzurra sotto ogni prodotto */
+}
+
+/* Nome del prodotto */
+.menu-category li h3 {
+    font-size: 1.5em;
+    color: #ffcc00; /* Giallo */
+    margin: 0;
+    text-align: center; /* Centra il testo */
+    width: 100%; /* Rende il testo centrale su tutta la larghezza */
+}
+
+/* Descrizione del prodotto */
+.menu-category li p.description {
+    font-size: 1em;
+    color: #333; /* Colore normale per la descrizione */
+    margin: 5px 0;  /* Distanza tra descrizione e il resto */
+    text-align: center; /* Centra il testo */
+    width: 100%; /* Rende la descrizione centrale su tutta la larghezza */
+}
+
+/* Prezzo del prodotto */
+.menu-category li .price {
+    font-size: 1.2em;
+    color: #d32f2f; /* Rosso */
+    font-weight: bold;
+    text-align: center; /* Centra il prezzo */
+    margin: 5px 0;  /* Distanza tra il prezzo e la linea sotto */
+    width: 100%; /* Rende il prezzo centrale su tutta la larghezza */
+}
+
+/* Media query per dispositivi mobili */
+@media (max-width: 767px) {
+    /* Contenitore principale del menu */
+    #bar-menu {
+        padding: 10px;
+    }
+
+    /* Lista degli elementi del menu */
+    .menu-category ul {
+        max-width: 100%; /* La lista occupa tutta la larghezza disponibile */
+    }
+
+    /* Elemento della lista (li) */
+    .menu-category li {
+        flex-direction: column; /* In colonna su smartphone */
+        text-align: center;      /* Centra tutto il testo */
+        margin-bottom: 20px;     /* Distanza tra gli elementi */
+    }
+
+    /* Nome del prodotto */
+    .menu-category li h3 {
+        font-size: 1.4em;       /* Riduci la dimensione del nome prodotto su schermo piccolo */
+        margin-bottom: 10px;    /* Distanza tra il titolo e la descrizione */
+    }
+
+    /* Descrizione del prodotto */
+    .menu-category li .description {
+        font-size: 1em;         /* Dimensione descrizione per mobile */
+        margin-bottom: 10px;    /* Distanza tra la descrizione e il prezzo */
+    }
+
+    /* Prezzo del prodotto */
+    .menu-category li .price {
+        font-size: 1.1em;       /* Dimensione prezzo per mobile */
+        margin-top: 5px;        /* Distanza tra il prezzo e la linea */
+    }
+}
+@media (orientation: landscape) {
+    /* Le tue regole CSS specifiche per la modalità landscape */
+    .menu-category {
+        width: 60%; /* Ad esempio, puoi aumentare la larghezza in landscape */
+    }
+
+    .page {
+        padding: 20px;
+    }
+
+    .page-container {
+        max-width: 100%;
+    }
+
+    /* Puoi aggiungere altre regole che si applicano solo in modalità landscape */
+}
+
+/* Impostazioni per la quantità */
+input[type="number"] {
+    width: 60px; /* Imposta una larghezza fissa per il campo quantità */
+    padding: 5px;
+    font-size: 14px;
+}
+
+/* Impostazioni per le variazioni */
+input[type="text"] {
+    width: 250px; /* Aumenta la larghezza del campo variazioni */
+    height: 40px; /* Aumenta l'altezza per rendere il campo più grande */
+    padding: 5px;
+    font-size: 14px;
+    resize: vertical; /* Permette all'utente di ridimensionare il campo in altezza */
+}
+#order-details label {
+    display: block;  /* Imposta il testo del label come blocco, così si posiziona sopra il campo di input */
+    margin-bottom: 5px; /* Distanza tra il label e il campo di input */
+    font-weight: bold;  /* Per rendere il testo più visibile */
+}
+#order-details input {
+    width: 100%;  /* Fai in modo che il campo di input prenda tutta la larghezza disponibile */
+    padding: 10px;  /* Aggiungi padding per fare il campo più grande */
+    margin-bottom: 10px;  /* Distanza tra il campo di input e gli altri elementi */
+    font-size: 16px;  /* Aumenta la dimensione del testo nel campo di input */
+}

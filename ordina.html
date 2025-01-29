@@ -33,27 +33,130 @@
 
         <section id="bar-menu">
             <div class="menu-category">
-                <h2>Bevande</h2>
+                <h2>Bevande e non solo</h2>
                 <ul>
                     <li>
-                        <h3>Cocktail al Mojito</h3>
-                        <p>Rum bianco, menta fresca, zucchero di canna e lime</p>
-                        <p class="price">€8.00</p>
-                    </li>
-                    <li>
-                        <h3>Spritz Aperol</h3>
-                        <p>Aperol, prosecco e soda</p>
-                        <p class="price">€6.00</p>
-                    </li>
-                    <li>
-                        <h3>Frullato Tropicale</h3>
-                        <p>Succo di mango, ananas e cocco</p>
-                        <p class="price">€5.00</p>
-                    </li>
-                    <li>
-                        <h3>Acqua Frizzante</h3>
-                        <p>Acqua minerale frizzante, perfetta per rinfrescarsi</p>
+                        <h3>Acqua Liscia o Frizzante</h3>
+                        <p>Bottiglietta 0,5 l</p>
                         <p class="price">€2.00</p>
+                         <!-- Nuovi campi per quantità e variazioni -->
+                <label for="quantity-acqua">Quantità:</label>
+                <input type="number" id="quantity-acqua" name="quantity-acqua" min="0" value="0">
+
+                <label for="variation-acqua">Variazioni (opzionale):</label>
+                <input type="text" id="variation-acqua" name="variation-acqua" placeholder="E.g., senza gas, con ghiaccio...">
+
+                    </li>
+                    <li>
+                        <h3>Bevande in Lattina </h3>
+                        <p>Coca-Cola, Fanta, Sprite, The pesca o limone</p>
+                        <p class="price">€4.00</p>
+                                        <!-- Nuovi campi per quantità e variazioni -->
+                <label for="quantity-lattina">Quantità:</label>
+                <input type="number" id="quantity-lattina" name="quantity-lattina" min="0" value="0">
+
+                <label for="variation-lattina">Variazioni (opzionale):</label>
+                <input type="text" id="variation-lattina" name="variation-lattina" placeholder="E.g., gusto preferito, senza zucchero...">
+
+
+                    </li>
+                    <li>
+                        <h3>Succhi di Frutta</h3>
+                        <p>Pesca, Albicocca, Pera, Ananas</p>
+                        <p class="price">€4.00</p>
+                                        <!-- Nuovi campi per quantità e variazioni -->
+                <label for="quantity-succhi di frutta">Quantità:</label>
+                <input type="number" id="quantity-succhi di frutta" name="quantity-succhi di frutta" min="0" value="0">
+
+                <label for="variation-succhi di frutta">Variazioni (opzionale):</label>
+                <input type="text" id="variation-succhi di frutta" name="variation-succhi di frutta" placeholder="E.g., gusto preferito...">
+
+
+                    </li>
+                    <li>
+                        <h3>Birre in Bottiglia 0,33cl</h3>
+                        <p>Heineken, Beck's, Peroni</p>
+                        <p class="price">€4.50</p>
+                                        <!-- Nuovi campi per quantità e variazioni -->
+                <label for="quantity-birra in bottiglia">Quantità:</label>
+                <input type="number" id="quantity-birra in bottiglia" name="quantity-birra in bottiglia" min="0" value="0">
+
+                <label for="variation-birra in bottiglia">Variazioni (opzionale):</label>
+                <input type="text" id="variation-birra in bottiglia" name="variation-birra in bottiglia" placeholder="E.t., birra Heineken, beck's...">
+
+
+                    </li>
+                    <li>
+                    <h3>Birre in Vetro Speciali 0,33cl</h3>
+                        <p>Corona, Ichnusa, Raffo</p>
+                        <p class="price">€5.00</p>
+                                                <!-- Nuovi campi per quantità e variazioni -->
+                <label for="quantity-birra in bottiglia speciali">Quantità:</label>
+                <input type="number" id="quantity-birra bottiglia speciali" name="quantity-birra in bottiglia speciali" min="0" value="0">
+
+                <label for="variation-birra in bottiglia speciali">Variazioni (opzionale):</label>
+                <input type="text" id="variation-birra in bottiglia" name="variation-birra in bottiglia speciali" placeholder="E.t., birra Corona, Ichnusa...">
+
+                    </li>
+                    <li>
+                        <h3>Spritz Aperol o Campari</h3>
+                        <p>Aperol o Campari, prosecco e soda</p>
+                        <p class="price">€8.00</p>
+                                                         <!-- Nuovi campi per quantità e variazioni -->
+                <label for="quantity-Spritz">Quantità:</label>
+                <input type="number" id="quantity-Spritz" name="quantity-Spritz" min="0" value="0">
+
+                <label for="variation-Spritz">Variazioni (opzionale):</label>
+                <input type="text" id="variation-Spritz" name="variation-Spritz" placeholder="E.t., Aperol, Campari">
+
+                        
+                    </li>
+                    <li>
+                        <h3>Gin Tonic o Lemon </h3>
+                        <p>Gin Premium, tonica o lemon</p>
+                        <p class="price">€10.00</p>
+                                                                  <!-- Nuovi campi per quantità e variazioni -->
+                <label for="quantity-Gin Tonic">Quantità:</label>
+                <input type="number" id="quantity-Gin Tonic" name="quantity-Gin Tonic" min="0" value="0">
+
+                <label for="variation-Gin Tonic">Variazioni (opzionale):</label>
+                <input type="text" id="variation-Gin Tonic" name="variation-Gin Tonic" placeholder="E.t., Tonica, Lemon">
+
+                    </li>
+                    
+                    <li>
+                        <h3>Caffè</h3>
+                        <p>Caffe, Caffe Macchiato</p>
+                        <p class="price">€2.00</p>
+                                                                             <!-- Nuovi campi per quantità e variazioni -->
+                <label for="quantity-Caffè">Quantità:</label>
+                <input type="number" id="quantity-Caffè" name="quantity-Caffè" min="0" value="0">
+
+                <label for="variation-Caffè">Variazioni (opzionale):</label>
+                <input type="text" id="variation-Caffè" name="variation-Caffè" placeholder="E.t., Normale, Macchiato">
+
+                    </li>
+                    <li>
+                        <h3>Busta di Patatine </h3>
+                        <p>Patatine Classiche</p>
+                        <p class="price">€2.00</p>                                                                             <!-- Nuovi campi per quantità e variazioni -->
+                        <label for="quantity-Busta di Patatine">Quantità:</label>
+                        <input type="number" id="quantity-Busta di Patatine" name="quantity-Busta di Patatine" min="0" value="0">
+        
+                        
+                    </li>
+                    
+                    <li>
+                        <h3>Gelati</h3>
+                        <p>Per i gelati chiedere la foto della lista, al prezzo verra aggiunta una maggiorazione di </p>
+                        <p class="price">€0,80</p>
+                                                                                       <!-- Nuovi campi per quantità e variazioni -->
+                <label for="quantity-Gelati">Quantità:</label>
+                <input type="number" id="quantity-Caffè" name="quantity-Caffè" min="0" value="0">
+
+                <label for="variation-Gelati">Variazioni (opzionale):</label>
+                <input type="text" id="variation-Gelati" name="variation-Gelati" placeholder="scrivi il nome del gelato">
+
                     </li>
                 </ul>
             </div>
@@ -62,30 +165,148 @@
         <section id="order-details">
             <label for="ombrellone-number">Numero Ombrellone:</label>
             <input type="number" id="ombrellone-number" placeholder="Es. 5" min="1" required>
+            
+            
+        
+            
+            <!-- Nuovo testo sopra il tasto WhatsApp -->
+            <p class="whatsapp-info">Una volta inserito il numero dell'ombrellone, ordina direttamente su WhatsApp!</p>
+        
             <a id="whatsapp-button" href="#" target="_blank" class="cta-btn">
                 Ordina su WhatsApp
             </a>
         </section>
+        
     </main>
 
     <footer>
         <p>&copy; 2025 Lido Barbanera | Tutti i diritti riservati</p>
+        <a href="privacy-policy.html">Privacy Policy</a>
     </footer>
+    
 
     <script src="app.js"></script>
     <script>
-        // Aggiungi l'evento per aggiornare il link WhatsApp con il numero ombrellone
         const whatsappButton = document.getElementById('whatsapp-button');
         const ombrelloneInput = document.getElementById('ombrellone-number');
-
+        
+        // Ottieni gli elementi per quantità e variazione di ogni prodotto
+        const quantityAcqua = document.getElementById('quantity-acqua');
+        const variationAcqua = document.getElementById('variation-acqua');
+        
+        const quantityLattina = document.getElementById('quantity-lattina');
+        const variationLattina = document.getElementById('variation-lattina');
+        
+        const quantitySucchi = document.getElementById('quantity-succhi di frutta');
+        const variationSucchi = document.getElementById('variation-succhi di frutta');
+        
+        const quantityBirraBottiglia = document.getElementById('quantity-birra in bottiglia');
+        const variationBirraBottiglia = document.getElementById('variation-birra in bottiglia');
+        
+        const quantityBirraSpeciali = document.getElementById('quantity-birra in bottiglia speciali');
+        const variationBirraSpeciali = document.getElementById('variation-birra in bottiglia speciali');
+        
+        const quantitySpritz = document.getElementById('quantity-Spritz');
+        const variationSpritz = document.getElementById('variation-Spritz');
+        
+        const quantityGinTonic = document.getElementById('quantity-Gin Tonic');
+        const variationGinTonic = document.getElementById('variation-Gin Tonic');
+        
+        const quantityCaffe = document.getElementById('quantity-Caffè');
+        const variationCaffe = document.getElementById('variation-Caffè');
+        
+        const quantityPatatine = document.getElementById('quantity-Busta di Patatine');
+        const variationPatatine = null; // Non è necessario un campo variazione per le patatine
+        
+        const quantityGelati = document.getElementById('quantity-Gelati');
+        const variationGelati = document.getElementById('variation-Gelati');
+        
+        // Aggiungi evento di input per aggiornare il link WhatsApp
         ombrelloneInput.addEventListener('input', function() {
             const ombrelloneNumber = ombrelloneInput.value;
-            if (ombrelloneNumber) {
-                // Crea il link WhatsApp con il numero dell'ombrellone
-                const whatsappUrl = `https://wa.me/393207408549?text=Vorrei%20ordinare!%20sono%20l'ombrellone%20numero%20${ombrelloneNumber}`;
-                whatsappButton.setAttribute('href', whatsappUrl);
+            let orderDetails = `Vorrei ordinare! Sono l'ombrellone numero ${ombrelloneNumber}.`;
+    
+            // Aggiungi dettagli ordine per Acqua Liscia o Frizzante
+            if (quantityAcqua.value > 0) {
+                orderDetails += `\nAcqua Liscia o Frizzante: ${quantityAcqua.value} bottigliette`;
+                if (variationAcqua.value) {
+                    orderDetails += `, Variazione: ${variationAcqua.value}`;
+                }
             }
+    
+            // Aggiungi dettagli ordine per Bevande in Lattina
+            if (quantityLattina.value > 0) {
+                orderDetails += `\nBevande in Lattina: ${quantityLattina.value} lattine`;
+                if (variationLattina.value) {
+                    orderDetails += `, Variazione: ${variationLattina.value}`;
+                }
+            }
+    
+            // Aggiungi dettagli ordine per Succhi di Frutta
+            if (quantitySucchi.value > 0) {
+                orderDetails += `\nSucchi di Frutta: ${quantitySucchi.value} succhi`;
+                if (variationSucchi.value) {
+                    orderDetails += `, Variazione: ${variationSucchi.value}`;
+                }
+            }
+    
+            // Aggiungi dettagli ordine per Birre in Bottiglia 0,33cl
+            if (quantityBirraBottiglia.value > 0) {
+                orderDetails += `\nBirre in Bottiglia 0,33cl: ${quantityBirraBottiglia.value} birre`;
+                if (variationBirraBottiglia.value) {
+                    orderDetails += `, Variazione: ${variationBirraBottiglia.value}`;
+                }
+            }
+    
+            // Aggiungi dettagli ordine per Birre in Vetro Speciali 0,33cl
+            if (quantityBirraSpeciali.value > 0) {
+                orderDetails += `\nBirre in Vetro Speciali 0,33cl: ${quantityBirraSpeciali.value} birre`;
+                if (variationBirraSpeciali.value) {
+                    orderDetails += `, Variazione: ${variationBirraSpeciali.value}`;
+                }
+            }
+    
+            // Aggiungi dettagli ordine per Spritz
+            if (quantitySpritz.value > 0) {
+                orderDetails += `\nSpritz Aperol o Campari: ${quantitySpritz.value} spritz`;
+                if (variationSpritz.value) {
+                    orderDetails += `, Variazione: ${variationSpritz.value}`;
+                }
+            }
+    
+            // Aggiungi dettagli ordine per Gin Tonic o Lemon
+            if (quantityGinTonic.value > 0) {
+                orderDetails += `\nGin Tonic o Lemon: ${quantityGinTonic.value} gin tonic`;
+                if (variationGinTonic.value) {
+                    orderDetails += `, Variazione: ${variationGinTonic.value}`;
+                }
+            }
+    
+            // Aggiungi dettagli ordine per Caffè
+            if (quantityCaffe.value > 0) {
+                orderDetails += `\nCaffè: ${quantityCaffe.value} caffè`;
+                if (variationCaffe.value) {
+                    orderDetails += `, Variazione: ${variationCaffe.value}`;
+                }
+            }
+    
+            // Aggiungi dettagli ordine per Busta di Patatine
+            if (quantityPatatine.value > 0) {
+                orderDetails += `\nBusta di Patatine: ${quantityPatatine.value} buste`;
+            }
+    
+            // Aggiungi dettagli ordine per Gelati
+            if (quantityGelati.value > 0) {
+                orderDetails += `\nGelati: ${quantityGelati.value} gelati`;
+                if (variationGelati.value) {
+                    orderDetails += `, Variazione: ${variationGelati.value}`;
+                }
+            }
+    
+            // Crea il link WhatsApp con i dettagli dell'ordine
+            const whatsappUrl = `https://wa.me/393207408549?text=${encodeURIComponent(orderDetails)}`;
+            whatsappButton.setAttribute('href', whatsappUrl);
         });
     </script>
-</body>
+    
 </html>
