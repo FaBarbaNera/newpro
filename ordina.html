@@ -6,68 +6,6 @@
     <title>Ordina dall'Ombrellone - Lido Barbanera</title>
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
-    <style>
-        /* Stile per il messaggio di errore */
-        #error-message {
-            color: red;
-            font-size: 14px;
-            margin-top: 5px;
-            display: none; /* Messaggio nascosto di default */
-        }
-
-        /* Modal (Popup) */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 400px;
-            text-align: center;
-        }
-
-        .close {
-            color: #aaa;
-            font-size: 28px;
-            font-weight: bold;
-            position: absolute;
-            top: 10px;
-            right: 25px;
-            text-decoration: none;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        /* Optional styles for WhatsApp button */
-        #whatsapp-button {
-            background-color: #25d366;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        #whatsapp-button:hover {
-            background-color: #128C7E;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -91,102 +29,27 @@
         </section>
 
         <section id="bar-menu">
-            <img src="images/logo.PNG" alt="Logo Lido Barbanera" id="logo">
-            <h1>Ordina dal Tuo Ombrellone!</h1>
-            <p>Scopri le nostre bevande fresche e ordina comodamente dal tuo ombrellone.</p>
-        </section>
-
-        <section id="bar-menu">
             <div class="menu-category">
                 <h2>Bevande e non solo</h2>
-                <ul>
-                    <li>
+                <ul id="menu-list">
+                    <li class="menu-item" data-price="2.00">
                         <h3>Acqua Liscia o Frizzante</h3>
                         <p>Bottiglietta 0,5 l</p>
                         <p class="price">€2.00</p>
-                        <label for="quantity-acqua">Quantità:</label>
-                        <input type="number" id="quantity-acqua" min="1" value="0">
-                        <label for="variation-acqua">Variazioni (opzionale):</label>
-                        <input type="text" id="variation-acqua" placeholder="E.g., senza gas, con ghiaccio...">
-                    </li>
-                    <li>
-                        <h3>Bevande in Lattina</h3>
-                        <p>Coca-Cola, Fanta, Sprite, The pesca o limone</p>
-                        <p class="price">€4.00</p>
-                        <label for="quantity-lattina">Quantità:</label>
-                        <input type="number" id="quantity-lattina" min="1" value="0">
-                        <label for="variation-lattina">Variazioni (opzionale):</label>
-                        <input type="text" id="variation-lattina" placeholder="E.g., gusto preferito, senza zucchero...">
-                    </li>
-                    <li>
-                        <h3>Succhi di Frutta</h3>
-                        <p>Pesca, Albicocca, Pera, Ananas</p>
-                        <p class="price">€4.00</p>
-                        <label for="quantity-succhi">Quantità:</label>
-                        <input type="number" id="quantity-succhi" min="1" value="0">
-                        <label for="variation-succhi">Variazioni (opzionale):</label>
-                        <input type="text" id="variation-succhi" placeholder="E.g., gusto preferito...">
-                    </li>
-                    <li>
-                        <h3>Birre in Bottiglia 0,33cl</h3>
-                        <p>Heineken, Beck's, Peroni</p>
-                        <p class="price">€4.50</p>
-                        <label for="quantity-birra-bottiglia">Quantità:</label>
-                        <input type="number" id="quantity-birra-bottiglia" min="1" value="0">
-                        <label for="variation-birra-bottiglia">Variazioni (opzionale):</label>
-                        <input type="text" id="variation-birra-bottiglia" placeholder="E.g., Heineken, Beck's...">
-                    </li>
-                    <li>
-                        <h3>Birre in Vetro Speciali 0,33cl</h3>
-                        <p>Corona, Ichnusa, Raffo</p>
-                        <p class="price">€5.00</p>
-                        <label for="quantity-birra-speciali">Quantità:</label>
-                        <input type="number" id="quantity-birra-speciali" min="1" value="0">
-                        <label for="variation-birra-speciali">Variazioni (opzionale):</label>
-                        <input type="text" id="variation-birra-speciali" placeholder="E.g., Corona, Ichnusa...">
-                    </li>
-                    <li>
-                        <h3>Spritz Aperol o Campari</h3>
-                        <p>Aperol o Campari, prosecco e soda</p>
-                        <p class="price">€8.00</p>
-                        <label for="quantity-spritz">Quantità:</label>
-                        <input type="number" id="quantity-spritz" min="1" value="0">
-                        <label for="variation-spritz">Variazioni (opzionale):</label>
-                        <input type="text" id="variation-spritz" placeholder="E.g., Aperol, Campari">
-                    </li>
-                    <li>
-                        <h3>Gin Tonic o Lemon</h3>
-                        <p>Gin Premium, tonica o lemon</p>
-                        <p class="price">€10.00</p>
-                        <label for="quantity-gin-tonic">Quantità:</label>
-                        <input type="number" id="quantity-gin-tonic" min="1" value="0">
-                        <label for="variation-gin-tonic">Variazioni (opzionale):</label>
-                        <input type="text" id="variation-gin-tonic" placeholder="E.g., Tonica, Lemon">
-                    </li>
-                    <li>
-                        <h3>Caffè</h3>
-                        <p>Caffè, Caffè Macchiato</p>
-                        <p class="price">€2.00</p>
-                        <label for="quantity-caffe">Quantità:</label>
-                        <input type="number" id="quantity-caffe" min="1" value="0">
-                        <label for="variation-caffe">Variazioni (opzionale):</label>
-                        <input type="text" id="variation-caffe" placeholder="E.g., Normale, Macchiato">
-                    </li>
-                    <li>
-                        <h3>Busta di Patatine</h3>
-                        <p>Patatine Classiche</p>
-                        <p class="price">€2.00</p>
-                        <label for="quantity-patatine">Quantità:</label>
-                        <input type="number" id="quantity-patatine" min="1" value="0">
-                    </li>
-                    <li>
-                        <h3>Gelati</h3>
-                        <p>Per i gelati chiedere la foto della lista, al prezzo verrà aggiunta una maggiorazione di €0,80</p>
-                        <p class="price">€0.80 (aggiuntivo per gelato)</p>
-                        <label for="quantity-gelati">Quantità:</label>
-                        <input type="number" id="quantity-gelati" min="1" value="0">
-                        <label for="variation-gelati">Variazioni (opzionale):</label>
-                        <input type="text" id="variation-gelati" placeholder="Scrivi il nome del gelato">
+                        <div class="variant-menu">
+                            <label for="water-type">Seleziona il tipo di acqua:</label>
+                            <select id="water-type" class="variant-select">
+                                <option value="">-- Scegli qui --</option>
+                                <option value="liscia">Liscia</option>
+                                <option value="frizzante">Frizzante</option>
+                            </select>
+                        </div>
+                        <div class="quantity-controls">
+                            <button class="quantity-minus">-</button>
+                            <span class="quantity">0</span>
+                            <button class="quantity-plus">+</button>
+                        </div>
+                        <button class="add-to-cart">Aggiungi al Carrello</button>
                     </li>
                 </ul>
             </div>
@@ -195,169 +58,195 @@
         <section id="order-details">
             <label for="ombrellone-number">Numero Ombrellone:</label>
             <input type="number" id="ombrellone-number" placeholder="Es. 5" min="1" required>
-            <p id="error-message">Per favore, inserisci il numero del tuo ombrellone per completare l'ordine.</p>
-        
             <p class="whatsapp-info">Una volta inserito il numero dell'ombrellone, ordina direttamente su WhatsApp!</p>
-        
-            <a id="whatsapp-button" href="#" target="_blank" class="cta-btn">
-                Ordina su WhatsApp
-            </a>
+
+            <!-- Sezione pagamento -->
+            <div id="payment-method">
+                <label for="payment-method-select">Scegli come pagare:</label>
+                <select id="payment-method-select">
+                    <option value="">-- Scegli qui --</option>
+                    <option value="carta">Carta</option>
+                    <option value="contanti">Contanti</option>
+                </select>
+
+                <!-- Sezione per il pagamento in contanti -->
+                <div id="cash-details" style="display: none;">
+                    <label for="cash-amount">Seleziona la banconota:</label>
+                    <select id="cash-amount">
+                        <option value="5">5€</option>
+                        <option value="10">10€</option>
+                        <option value="20">20€</option>
+                        <option value="50">50€</option>
+                        <option value="100">100€</option>
+                    </select>
+                </div>
+            </div>
+
+            <a id="whatsapp-button" href="#" target="_blank" class="cta-btn">Ordina su WhatsApp</a>
         </section>
+
+        <!-- Carrello in basso a sinistra -->
+        <div id="cart-container">
+            <button id="cart-button">Carrello</button>
+            <div id="cart-details">
+                <h3>Il Tuo Carrello:</h3>
+                <ul id="cart-list"></ul>
+                <p><strong>Totale: <span id="cart-total">€0.00</span></strong></p>
+            </div>
+        </div>
     </main>
 
     <footer>
         <p>&copy; 2025 Lido Barbanera | Tutti i diritti riservati</p>
-        <a href="privacy-policy.html">Privacy Policy</a>
     </footer>
-
-    <!-- Modal (Popup) -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Per favore, inserisci il numero del tuo ombrellone per completare l'ordine.</p>
-        </div>
-    </div>
 
     <script src="app.js"></script>
     <script>
-        const whatsappButton = document.getElementById('whatsapp-button');
-        const ombrelloneInput = document.getElementById('ombrellone-number');
-        const errorMessage = document.getElementById('error-message');
-        const modal = document.getElementById("myModal");
-        const closeModal = document.getElementsByClassName("close")[0];
+        // Carrello e gestione quantità
+        const menuItems = document.querySelectorAll('.menu-item');
+        let cart = [];
 
-        // Ottieni gli elementi per quantità e variazione di ogni prodotto
-        const quantityAcqua = document.getElementById('quantity-acqua');
-        const variationAcqua = document.getElementById('variation-acqua');
-        
-        const quantityLattina = document.getElementById('quantity-lattina');
-        const variationLattina = document.getElementById('variation-lattina');
-        
-        const quantitySucchi = document.getElementById('quantity-succhi');
-        const variationSucchi = document.getElementById('variation-succhi');
-        
-        const quantityBirraBottiglia = document.getElementById('quantity-birra-bottiglia');
-        const variationBirraBottiglia = document.getElementById('variation-birra-bottiglia');
-        
-        const quantityBirraSpeciali = document.getElementById('quantity-birra-speciali');
-        const variationBirraSpeciali = document.getElementById('variation-birra-speciali');
-        
-        const quantitySpritz = document.getElementById('quantity-spritz');
-        const variationSpritz = document.getElementById('variation-spritz');
-        
-        const quantityGinTonic = document.getElementById('quantity-gin-tonic');
-        const variationGinTonic = document.getElementById('variation-gin-tonic');
-        
-        const quantityCaffe = document.getElementById('quantity-caffe');
-        const variationCaffe = document.getElementById('variation-caffe');
-        
-        const quantityPatatine = document.getElementById('quantity-patatine');
-        const variationPatatine = null; // Non è necessario un campo variazione per le patatine
-        
-        const quantityGelati = document.getElementById('quantity-gelati');
-        const variationGelati = document.getElementById('variation-gelati');
-        
-        // Aggiungi evento di input per aggiornare il link WhatsApp
-        ombrelloneInput.addEventListener('input', function() {
-            const ombrelloneNumber = ombrelloneInput.value;
+        menuItems.forEach(item => {
+            const plusButton = item.querySelector('.quantity-plus');
+            const minusButton = item.querySelector('.quantity-minus');
+            const quantitySpan = item.querySelector('.quantity');
+            const price = parseFloat(item.dataset.price);
+            const addToCartButton = item.querySelector('.add-to-cart');
+            const variantSelect = item.querySelector('.variant-select');
+            const itemName = item.querySelector('h3').textContent;
 
-            if (!ombrelloneNumber) {
-                // Se il numero ombrellone non è inserito, mostra il modal di errore
-                modal.style.display = "block";
-                whatsappButton.setAttribute('href', '#');
-                return;
-            } else {
-                // Se il numero è valido, nascondi il modal e aggiorna il link WhatsApp
-                modal.style.display = "none";
-                errorMessage.style.display = 'none';
-            }
-            
-            let orderDetails = `Vorrei ordinare! Sono l'ombrellone numero ${ombrelloneNumber}.`;
+            // Incrementa la quantità
+            plusButton.addEventListener('click', () => {
+                let quantity = parseInt(quantitySpan.textContent);
+                quantity++;
+                quantitySpan.textContent = quantity;
+                updateCart(item, quantity, price, variantSelect.value);
+            });
 
-            // Aggiungi dettagli ordine per ogni prodotto
-            if (quantityAcqua.value > 0) {
-                orderDetails += `\nAcqua Liscia o Frizzante: ${quantityAcqua.value} bottigliette`;
-                if (variationAcqua.value) {
-                    orderDetails += `, Variazione: ${variationAcqua.value}`;
+            // Decrementa la quantità
+            minusButton.addEventListener('click', () => {
+                let quantity = parseInt(quantitySpan.textContent);
+                if (quantity > 0) {
+                    quantity--;
+                    quantitySpan.textContent = quantity;
+                    updateCart(item, quantity, price, variantSelect.value);
                 }
-            }
-    
-            if (quantityLattina.value > 0) {
-                orderDetails += `\nBevande in Lattina: ${quantityLattina.value} lattine`;
-                if (variationLattina.value) {
-                    orderDetails += `, Variazione: ${variationLattina.value}`;
-                }
-            }
-    
-            if (quantitySucchi.value > 0) {
-                orderDetails += `\nSucchi di Frutta: ${quantitySucchi.value} succhi`;
-                if (variationSucchi.value) {
-                    orderDetails += `, Variazione: ${variationSucchi.value}`;
-                }
-            }
-    
-            if (quantityBirraBottiglia.value > 0) {
-                orderDetails += `\nBirre in Bottiglia 0,33cl: ${quantityBirraBottiglia.value} birre`;
-                if (variationBirraBottiglia.value) {
-                    orderDetails += `, Variazione: ${variationBirraBottiglia.value}`;
-                }
-            }
-    
-            if (quantityBirraSpeciali.value > 0) {
-                orderDetails += `\nBirre in Vetro Speciali 0,33cl: ${quantityBirraSpeciali.value} birre`;
-                if (variationBirraSpeciali.value) {
-                    orderDetails += `, Variazione: ${variationBirraSpeciali.value}`;
-                }
-            }
-    
-            if (quantitySpritz.value > 0) {
-                orderDetails += `\nSpritz Aperol o Campari: ${quantitySpritz.value} spritz`;
-                if (variationSpritz.value) {
-                    orderDetails += `, Variazione: ${variationSpritz.value}`;
-                }
-            }
-    
-            if (quantityGinTonic.value > 0) {
-                orderDetails += `\nGin Tonic o Lemon: ${quantityGinTonic.value} gin tonic`;
-                if (variationGinTonic.value) {
-                    orderDetails += `, Variazione: ${variationGinTonic.value}`;
-                }
-            }
-    
-            if (quantityCaffe.value > 0) {
-                orderDetails += `\nCaffè: ${quantityCaffe.value} caffè`;
-                if (variationCaffe.value) {
-                    orderDetails += `, Variazione: ${variationCaffe.value}`;
-                }
-            }
-    
-            if (quantityPatatine.value > 0) {
-                orderDetails += `\nBusta di Patatine: ${quantityPatatine.value} buste`;
-            }
-    
-            if (quantityGelati.value > 0) {
-                orderDetails += `\nGelati: ${quantityGelati.value} gelati`;
-                if (variationGelati.value) {
-                    orderDetails += `, Variazione: ${variationGelati.value}`;
-                }
-            }
+            });
 
-            // Crea il link WhatsApp con i dettagli dell'ordine
-            const whatsappUrl = `https://wa.me/393207408549?text=${encodeURIComponent(orderDetails)}`;
-            whatsappButton.setAttribute('href', whatsappUrl);
+            // Aggiungi al carrello
+            addToCartButton.addEventListener('click', () => {
+                let quantity = parseInt(quantitySpan.textContent);
+                if (quantity > 0) {
+                    addToCart(itemName, quantity, price, variantSelect.value);
+                    quantitySpan.textContent = 0; // Reset quantità a zero dopo l'aggiunta al carrello
+                }
+            });
         });
 
-        // Quando l'utente clicca sulla "X" (close), nasconde il modal
-        closeModal.onclick = function() {
-            modal.style.display = "none";
+        // Aggiungi al carrello
+        function addToCart(name, quantity, price, variant) {
+            const existingItem = cart.find(i => i.name === name && i.variant === variant);
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({ name, price, quantity, variant });
+            }
+            updateCartDisplay();
         }
 
-        // Quando l'utente clicca fuori dal modal, nasconde il modal
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
+        // Mostra il carrello
+        function updateCartDisplay() {
+            const cartList = document.getElementById('cart-list');
+            const cartTotal = document.getElementById('cart-total');
+            cartList.innerHTML = '';
+
+            let total = 0;
+            cart.forEach((item, index) => {
+                if (item.quantity > 0) {
+                    total += item.price * item.quantity;
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${item.name} (${item.variant}): ${item.quantity} x €${item.price.toFixed(2)}`;
+
+                    // Aggiungi il pulsante di rimozione
+                    const removeButton = document.createElement('button');
+                    removeButton.textContent = 'Rimuovi';
+                    removeButton.addEventListener('click', () => {
+                        removeFromCart(index);
+                    });
+
+                    listItem.appendChild(removeButton);
+                    cartList.appendChild(listItem);
+                }
+            });
+
+            cartTotal.textContent = `€${total.toFixed(2)}`;
         }
+
+        // Rimuovi un articolo dal carrello
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartDisplay();
+        }
+
+        // Gestione metodo di pagamento
+        const paymentMethodSelect = document.getElementById('payment-method-select');
+        const cashDetails = document.getElementById('cash-details');
+        const cashAmountSelect = document.getElementById('cash-amount');
+        paymentMethodSelect.addEventListener('change', () => {
+            if (paymentMethodSelect.value === 'contanti') {
+                cashDetails.style.display = 'block';
+            } else {
+                cashDetails.style.display = 'none';
+            }
+        });
+
+        // Invio su WhatsApp
+        document.getElementById('ombrellone-number').addEventListener('input', () => {
+    const ombrelloneNumber = document.getElementById('ombrellone-number').value;
+    let message = `Ordine dall'ombrellone ${ombrelloneNumber}\n`;
+
+    cart.forEach(item => {
+        message += `${item.name} (${item.variant}): ${item.quantity} x €${item.price.toFixed(2)}\n`;
+    });
+
+    message += `Totale: €${document.getElementById('cart-total').textContent}\n`;
+
+    const paymentMethod = paymentMethodSelect.value;
+    message += `Metodo di pagamento: ${paymentMethod}\n`;
+
+    // Verifica se il metodo di pagamento è contante
+    if (paymentMethod === 'contanti') {
+        const cashAmount = cashAmountSelect.value;
+        message += `Banconota: €${cashAmount}\n`; // Aggiungi il taglio della banconota nel messaggio
+    }
+
+    // Aggiorna il link di WhatsApp con il messaggio
+    whatsappButton.setAttribute('href', `https://wa.me/393207408549?text=${encodeURIComponent(message)}`);
+});
+
+// Aggiungere anche l'evento change sul metodo di pagamento
+paymentMethodSelect.addEventListener('change', () => {
+    const ombrelloneNumber = document.getElementById('ombrellone-number').value;
+    let message = `Ordine dall'ombrellone ${ombrelloneNumber}\n`;
+
+    cart.forEach(item => {
+        message += `${item.name} (${item.variant}): ${item.quantity} x €${item.price.toFixed(2)}\n`;
+    });
+
+    message += `Totale: €${document.getElementById('cart-total').textContent}\n`;
+
+    const paymentMethod = paymentMethodSelect.value;
+    message += `Metodo di pagamento: ${paymentMethod}\n`;
+
+    // Se il pagamento è in contanti, includiamo anche il taglio della banconota
+    if (paymentMethod === 'contanti') {
+        const cashAmount = cashAmountSelect.value;
+        message += `Banconota: €${cashAmount}\n`;
+    }
+
+    whatsappButton.setAttribute('href', `https://wa.me/393207408549?text=${encodeURIComponent(message)}`);
+});
+
     </script>
 </body>
 </html>
