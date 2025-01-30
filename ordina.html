@@ -39,7 +39,6 @@
                         <div class="variant-menu">
                             <label for="water-type">Seleziona il tipo di acqua:</label>
                             <select id="water-type" class="variant-select">
-                                <option value="">-- Scegli qui --</option>
                                 <option value="liscia">Liscia</option>
                                 <option value="frizzante">Frizzante</option>
                             </select>
@@ -161,31 +160,16 @@
             cartList.innerHTML = '';
 
             let total = 0;
-            cart.forEach((item, index) => {
+            cart.forEach(item => {
                 if (item.quantity > 0) {
                     total += item.price * item.quantity;
                     const listItem = document.createElement('li');
                     listItem.textContent = `${item.name} (${item.variant}): ${item.quantity} x €${item.price.toFixed(2)}`;
-
-                    // Aggiungi il pulsante di rimozione
-                    const removeButton = document.createElement('button');
-                    removeButton.textContent = 'Rimuovi';
-                    removeButton.addEventListener('click', () => {
-                        removeFromCart(index);
-                    });
-
-                    listItem.appendChild(removeButton);
                     cartList.appendChild(listItem);
                 }
             });
 
             cartTotal.textContent = `€${total.toFixed(2)}`;
-        }
-
-        // Rimuovi un articolo dal carrello
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartDisplay();
         }
 
         // Gestione metodo di pagamento
@@ -201,52 +185,27 @@
         });
 
         // Invio su WhatsApp
+        const whatsappButton = document.getElementById('whatsapp-button');
         document.getElementById('ombrellone-number').addEventListener('input', () => {
-    const ombrelloneNumber = document.getElementById('ombrellone-number').value;
-    let message = `Ordine dall'ombrellone ${ombrelloneNumber}\n`;
+            const ombrelloneNumber = document.getElementById('ombrellone-number').value;
+            let message = `Ordine dall'ombrellone ${ombrelloneNumber}\n`;
 
-    cart.forEach(item => {
-        message += `${item.name} (${item.variant}): ${item.quantity} x €${item.price.toFixed(2)}\n`;
-    });
+            cart.forEach(item => {
+                message += `${item.name} (${item.variant}): ${item.quantity} x €${item.price.toFixed(2)}\n`;
+            });
 
-    message += `Totale: €${document.getElementById('cart-total').textContent}\n`;
+            message += `Totale: €${document.getElementById('cart-total').textContent}\n`;
 
-    const paymentMethod = paymentMethodSelect.value;
-    message += `Metodo di pagamento: ${paymentMethod}\n`;
+            const paymentMethod = paymentMethodSelect.value;
+            message += `Metodo di pagamento: ${paymentMethod}\n`;
 
-    // Verifica se il metodo di pagamento è contante
-    if (paymentMethod === 'contanti') {
-        const cashAmount = cashAmountSelect.value;
-        message += `Banconota: €${cashAmount}\n`; // Aggiungi il taglio della banconota nel messaggio
-    }
+            if (paymentMethod === 'contanti') {
+                const cashAmount = cashAmountSelect.value;
+                message += `Banconota: €${cashAmount}\n`;
+            }
 
-    // Aggiorna il link di WhatsApp con il messaggio
-    whatsappButton.setAttribute('href', `https://wa.me/393207408549?text=${encodeURIComponent(message)}`);
-});
-
-// Aggiungere anche l'evento change sul metodo di pagamento
-paymentMethodSelect.addEventListener('change', () => {
-    const ombrelloneNumber = document.getElementById('ombrellone-number').value;
-    let message = `Ordine dall'ombrellone ${ombrelloneNumber}\n`;
-
-    cart.forEach(item => {
-        message += `${item.name} (${item.variant}): ${item.quantity} x €${item.price.toFixed(2)}\n`;
-    });
-
-    message += `Totale: €${document.getElementById('cart-total').textContent}\n`;
-
-    const paymentMethod = paymentMethodSelect.value;
-    message += `Metodo di pagamento: ${paymentMethod}\n`;
-
-    // Se il pagamento è in contanti, includiamo anche il taglio della banconota
-    if (paymentMethod === 'contanti') {
-        const cashAmount = cashAmountSelect.value;
-        message += `Banconota: €${cashAmount}\n`;
-    }
-
-    whatsappButton.setAttribute('href', `https://wa.me/393207408549?text=${encodeURIComponent(message)}`);
-});
-
+            whatsappButton.setAttribute('href', `https://wa.me/393207408549?text=${encodeURIComponent(message)}`);
+        });
     </script>
 </body>
 </html>
