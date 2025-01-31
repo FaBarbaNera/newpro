@@ -268,7 +268,7 @@ function updateCart() {
     const cartItemsContainer = document.getElementById('cart-items');
     const cartTotal = document.getElementById('cart-total');
     const cartBadge = document.getElementById('cart-badge');
-    cartItemsContainer.innerHTML = '';
+    cartItemsContainer.innerHTML = ''; // Pulisce il contenuto esistente
     let total = 0;
 
     cart.forEach(item => {
@@ -281,8 +281,8 @@ function updateCart() {
         total += parseFloat(item.price);
     });
 
-    cartTotal.textContent = total.toFixed(2);
-    cartBadge.textContent = cart.length;  // Aggiorna il numero nel badge
+    cartTotal.textContent = total.toFixed(2); // Aggiorna il totale
+    cartBadge.textContent = cart.length; // Aggiorna il badge con il numero degli articoli
 }
 
 document.querySelectorAll('.add-to-cart').forEach(button => {
@@ -345,28 +345,22 @@ document.getElementById('whatsapp-button').addEventListener('click', function() 
     this.setAttribute('href', whatsappUrl);
 });
 
-
-        // Aggiungi l'evento per l'icona del carrello
-        document.querySelector('.cart-icon').addEventListener('click', function() {
-            const cartElement = document.querySelector('.cart');
-            if (cartElement.style.display === 'none' || cartElement.style.display === '') {
-                cartElement.style.display = 'block';
-            } else {
-                cartElement.style.display = 'none';
-            }
-        });
-        // Aggiungi l'evento per l'icona del carrello
+// Aggiungi l'evento per l'icona del carrello
 document.querySelector('.cart-icon').addEventListener('click', function() {
     const cartElement = document.querySelector('.cart');
+    // Verifica se il carrello è visibile o meno
     if (cartElement.style.display === 'none' || cartElement.style.display === '') {
-        cartElement.style.display = 'block';
+        cartElement.style.display = 'block';  // Mostra il carrello
+        updateCart();  // Mostra gli articoli nel carrello
     } else {
-        cartElement.style.display = 'none';
+        cartElement.style.display = 'none';  // Nasconde il carrello
     }
 });
+
     </script>
 </body>
 </html>
+
 
 
 
