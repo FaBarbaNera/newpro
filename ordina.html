@@ -258,89 +258,93 @@
     <!-- Icona del carrello -->
     <div class="cart-icon">
         <i class="fas fa-shopping-cart"></i>
+        <span id="cart-badge" class="badge">0</span>
     </div>
 
     <script>
-        let cart = [];
+       let cart = [];
 
-        function updateCart() {
-            const cartItemsContainer = document.getElementById('cart-items');
-            const cartTotal = document.getElementById('cart-total');
-            cartItemsContainer.innerHTML = '';
-            let total = 0;
+function updateCart() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    const cartBadge = document.getElementById('cart-badge');
+    cartItemsContainer.innerHTML = '';
+    let total = 0;
 
-            cart.forEach(item => {
-                const li = document.createElement('li');
-                li.innerHTML = `
-                    ${item.name} - ${item.variant} - €${item.price}
-                    <button class="remove-item" data-name="${item.name}">Rimuovi</button>
-                `;
-                cartItemsContainer.appendChild(li);
-                total += parseFloat(item.price);
-            });
+    cart.forEach(item => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            ${item.name} - ${item.variant} - €${item.price}
+            <button class="remove-item" data-name="${item.name}">Rimuovi</button>
+        `;
+        cartItemsContainer.appendChild(li);
+        total += parseFloat(item.price);
+    });
 
-            cartTotal.textContent = total.toFixed(2);
+    cartTotal.textContent = total.toFixed(2);
+    cartBadge.textContent = cart.length;  // Aggiorna il numero nel badge
+}
+
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', function() {
+        const name = this.getAttribute('data-name');
+        const price = this.getAttribute('data-price');
+        const variantSelect = this.closest('li').querySelector('.product-variant');
+        const variant = variantSelect ? variantSelect.value : null;
+
+        if (variant && variant !== '--scegli qui--') {
+            cart.push({ name, price, variant });
+            updateCart();
+        } else {
+            alert('Per favore, seleziona una variante per il prodotto.');
         }
+    });
+});
 
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', function() {
-                const name = this.getAttribute('data-name');
-                const price = this.getAttribute('data-price');
-                const variantSelect = this.closest('li').querySelector('.product-variant');
-                const variant = variantSelect ? variantSelect.value : null;
+document.getElementById('cart-items').addEventListener('click', function(event) {
+    if (event.target.classList.contains('remove-item')) {
+        const itemName = event.target.getAttribute('data-name');
+        cart = cart.filter(item => item.name !== itemName);
+        updateCart();
+    }
+});
 
-                if (variant && variant !== '--scegli qui--') {
-                    cart.push({ name, price, variant });
-                    updateCart();
-                } else {
-                    alert('Per favore, seleziona una variante per il prodotto.');
-                }
-            });
-        });
+document.getElementById('payment-method').addEventListener('change', function() {
+    const paymentMethod = this.value;
+    const cashOptions = document.getElementById('cash-options');
 
-        document.getElementById('cart-items').addEventListener('click', function(event) {
-            if (event.target.classList.contains('remove-item')) {
-                const itemName = event.target.getAttribute('data-name');
-                cart = cart.filter(item => item.name !== itemName);
-                updateCart();
-            }
-        });
+    if (paymentMethod === 'cash') {
+        cashOptions.style.display = 'block';
+    } else {
+        cashOptions.style.display = 'none';
+    }
+});
 
-        document.getElementById('payment-method').addEventListener('change', function() {
-            const paymentMethod = this.value;
-            const cashOptions = document.getElementById('cash-options');
+document.getElementById('whatsapp-button').addEventListener('click', function() {
+    const ombrelloneNumber = document.getElementById('ombrellone-number').value;
+    let orderDetails = `Ombrellone: ${ombrelloneNumber}\n`;
+    let total = 0;
+    let orderItems = '';
 
-            if (paymentMethod === 'cash') {
-                cashOptions.style.display = 'block';
-            } else {
-                cashOptions.style.display = 'none';
-            }
-        });
+    cart.forEach(item => {
+        orderItems += `${item.name} - ${item.variant} - €${item.price}\n`;
+        total += parseFloat(item.price);
+    });
 
-        document.getElementById('whatsapp-button').addEventListener('click', function() {
-            const ombrelloneNumber = document.getElementById('ombrellone-number').value;
-            let orderDetails = `Ombrellone: ${ombrelloneNumber}\n`;
-            let total = 0;
-            let orderItems = '';
+    const paymentMethod = document.getElementById('payment-method').value;
+    let paymentDetails = `Metodo di pagamento: ${paymentMethod === 'card' ? 'Carta' : 'Contante'}`;
 
-            cart.forEach(item => {
-                orderItems += `${item.name} - ${item.variant} - €${item.price}\n`;
-                total += parseFloat(item.price);
-            });
+    if (paymentMethod === 'cash') {
+        const cashAmount = document.getElementById('cash-amount').value;
+        paymentDetails += `, Banconota: €${cashAmount}`;
+    }
 
-            const paymentMethod = document.getElementById('payment-method').value;
-            let paymentDetails = `Metodo di pagamento: ${paymentMethod === 'card' ? 'Carta' : 'Contante'}`;
+    const message = `Ciao! Vorrei ordinare dal mio ombrellone numero ${ombrelloneNumber}.\n\n${orderItems}\nTotale: €${total.toFixed(2)}\n${paymentDetails}`;
 
-            if (paymentMethod === 'cash') {
-                const cashAmount = document.getElementById('cash-amount').value;
-                paymentDetails += `, Banconota: €${cashAmount}`;
-            }
+    const whatsappUrl = `https://wa.me/393207408549?text=${encodeURIComponent(message)}`;
+    this.setAttribute('href', whatsappUrl);
+});
 
-            const message = `Ciao! Vorrei ordinare dal mio ombrellone numero ${ombrelloneNumber}.\n\n${orderItems}\nTotale: €${total.toFixed(2)}\n${paymentDetails}`;
-
-            const whatsappUrl = `https://wa.me/393207408549?text=${encodeURIComponent(message)}`;
-            this.setAttribute('href', whatsappUrl);
-        });
 
         // Aggiungi l'evento per l'icona del carrello
         document.querySelector('.cart-icon').addEventListener('click', function() {
@@ -351,9 +355,20 @@
                 cartElement.style.display = 'none';
             }
         });
+        // Aggiungi l'evento per l'icona del carrello
+document.querySelector('.cart-icon').addEventListener('click', function() {
+    const cartElement = document.querySelector('.cart');
+    if (cartElement.style.display === 'none' || cartElement.style.display === '') {
+        cartElement.style.display = 'block';
+    } else {
+        cartElement.style.display = 'none';
+    }
+});
     </script>
 </body>
 </html>
+
+
 
 
 

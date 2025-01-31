@@ -1102,5 +1102,42 @@ main {
     align-items: center;      /* Allinea orizzontalmente al centro */
     min-height: 100vh;        /* Fa in modo che occupi tutta l'altezza della finestra */
 }
+/* Stile per il badge sul carrello */
+.cart-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+.cart-icon:hover {
+    background-color: #0056b3;
+}
+
+#cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    font-size: 14px;
+    border-radius: 50%;
+    padding: 5px;
+    min-width: 20px;
+    text-align: center;
+}
+
+
 
 
