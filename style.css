@@ -1052,22 +1052,47 @@ input[type="text"] {
     font-size: 1rem;
     margin-bottom: 10px;
 }
+/* Sezione pagamento */
 #order-details {
-    position: relative;
-    margin-top: 20px;  /* Distanza verticale */
-    text-align: center;
+    text-align: center; /* Centra il contenuto della sezione */
+    margin-top: 20px;
+}
+#payment-method {
+    width: 100%; /* Imposta la larghezza a 100% per occupare tutto lo spazio disponibile */
+    max-width: 300px; /* Limita la larghezza massima per evitare che diventi troppo largo */
+    margin: 10px auto; /* Centra il selettore orizzontalmente */
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
-#payment-method {
-    display: flex;
-    flex-direction: column;
-    align-items: center;  /* Centra il contenuto */
-    margin-top: 10px;
+/* Sezione pagamento */
+#order-details {
+    text-align: center; /* Centra il contenuto della sezione */
+    margin-top: 40;
 }
 
 #cash-options {
-    margin-top: 10px; /* Distanza tra il metodo di pagamento e le banconote */
-    text-align: center; /* Centra le opzioni di banconote */
+    display: none;
+    margin-top: 20px;
+    text-align: center; /* Centra il contenuto del blocco delle opzioni di pagamento in contante */
+}
+#cash-amount {
+    width: 100%;
+    max-width: 300px; /* Limita la larghezza massima per mantenere il controllo centrato */
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+label {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
 }
 /* Impostiamo flexbox sul contenitore principale per centrare il contenuto */
 main {
@@ -1077,3 +1102,5 @@ main {
     align-items: center;      /* Allinea orizzontalmente al centro */
     min-height: 100vh;        /* Fa in modo che occupi tutta l'altezza della finestra */
 }
+
+
