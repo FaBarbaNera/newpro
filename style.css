@@ -1027,3 +1027,53 @@ input[type="text"] {
     margin-bottom: 10px;  /* Distanza tra il campo di input e gli altri elementi */
     font-size: 16px;  /* Aumenta la dimensione del testo nel campo di input */
 }
+
+
+
+#cash-options {
+    display: none;
+    margin-top: 10px;
+    text-align: center; /* Centra il contenuto */
+}
+
+#cash-options select {
+    width: 60%;
+    max-width: 300px;
+    text-align: center; /* Centra il testo all'interno del select */
+    padding: 10px;
+    font-size: 1rem;
+    margin: 0 auto; /* Centra l'elemento select */
+    display: block; /* Assicura che il select sia un elemento di blocco */
+}
+
+#cash-options label {
+    text-align: center;
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+#order-details {
+    position: relative;
+    margin-top: 20px;  /* Distanza verticale */
+    text-align: center;
+}
+
+#payment-method {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Centra il contenuto */
+    margin-top: 10px;
+}
+
+#cash-options {
+    margin-top: 10px; /* Distanza tra il metodo di pagamento e le banconote */
+    text-align: center; /* Centra le opzioni di banconote */
+}
+/* Impostiamo flexbox sul contenitore principale per centrare il contenuto */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Allinea verticalmente al centro */
+    align-items: center;      /* Allinea orizzontalmente al centro */
+    min-height: 100vh;        /* Fa in modo che occupi tutta l'altezza della finestra */
+}
