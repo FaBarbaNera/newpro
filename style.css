@@ -1138,6 +1138,14 @@ main {
     text-align: center;
 }
 
+.contact-btn.whatsapp {
+    background-color: #25D366; /* Colore verde di WhatsApp */
+    color: white;
+}
+
+.contact-btn.whatsapp:hover {
+    background-color: #128C7E; /* Colore verde scuro di WhatsApp quando si passa sopra con il mouse */
+}
 
 
 
