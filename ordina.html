@@ -423,24 +423,46 @@ document.getElementById('payment-method').addEventListener('change', function() 
 // Prepara il link di WhatsApp con il metodo di pagamento e l'importo
 document.getElementById('whatsapp-button').addEventListener('click', function(event) {
     const number = document.getElementById('ombrellone-number').value;
+    
+    // Verifica se il numero dell'ombrellone è valido (tra 1 e 250)
+    if (number < 1 || number > 250) {
+        alert('Per favore, inserisci un numero di ombrellone valido tra 1 e 250.');
+        event.preventDefault();  // Previeni il reindirizzamento alla pagina WhatsApp
+        return;  // Fermati qui se il numero non è valido
+    }
+
     const paymentMethod = document.getElementById('payment-method').value;
     let paymentInfo = '';
-    
-    // Verifica che il numero dell'ombrellone sia stato inserito e che sia stato scelto un metodo di pagamento
-    if (!number || paymentMethod === 'scegli') {
-        alert('Per favore, seleziona il numero dell\'ombrellone e un metodo di pagamento.');
+    let changeAmount = 0;
+
+    // Verifica che sia stato scelto un metodo di pagamento
+    if (paymentMethod === 'scegli') {
+        alert('Per favore, seleziona un metodo di pagamento.');
         event.preventDefault();  // Previeni il reindirizzamento alla pagina WhatsApp
-        return;  // Fermati qui se non sono stati selezionati i dati necessari
+        return;
     }
 
     // Se pagamento contante, controlla se l'utente ha inserito un importo personalizzato
     if (paymentMethod === 'cash') {
-        const customAmount = document.getElementById('custom-cash').value;
-        if (customAmount) {
-            paymentInfo = `Pagamento in contante: €${customAmount}`;
+        const customAmount = parseFloat(document.getElementById('custom-cash').value);  // Importo inserito dall'utente
+        const selectedAmount = parseFloat(document.getElementById('cash-amount').value);  // Importo selezionato dall'utente (banconote)
+        
+        const totalPrice = parseFloat(document.getElementById('cart-total').textContent); // Prezzo totale del carrello
+
+        // Se l'utente ha inserito un importo personalizzato
+        if (customAmount > 0) {
+            if (customAmount < totalPrice) {
+                alert('L\'importo inserito è inferiore al totale dell\'ordine.');
+                event.preventDefault();  // Fermati qui se l'importo è insufficiente
+                return;
+            } else {
+                changeAmount = customAmount - totalPrice;  // Calcola il resto
+                paymentInfo = `Pagamento in contante: €${customAmount}. Resto: €${changeAmount.toFixed(2)}`;
+            }
         } else {
-            const selectedAmount = document.getElementById('cash-amount').value;
-            paymentInfo = `Pagamento in contante: €${selectedAmount}`;
+            // Se non c'è un importo personalizzato, usa l'importo della banconota selezionata
+            changeAmount = selectedAmount - totalPrice;
+            paymentInfo = `Pagamento in contante: €${selectedAmount}. Resto: €${changeAmount.toFixed(2)}`;
         }
     } else if (paymentMethod === 'card') {
         paymentInfo = 'Pagamento con carta';
