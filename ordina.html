@@ -421,11 +421,18 @@ document.getElementById('payment-method').addEventListener('change', function() 
 
 
 // Prepara il link di WhatsApp con il metodo di pagamento e l'importo
-document.getElementById('whatsapp-button').addEventListener('click', function() {
+document.getElementById('whatsapp-button').addEventListener('click', function(event) {
     const number = document.getElementById('ombrellone-number').value;
     const paymentMethod = document.getElementById('payment-method').value;
     let paymentInfo = '';
     
+    // Verifica che il numero dell'ombrellone sia stato inserito e che sia stato scelto un metodo di pagamento
+    if (!number || paymentMethod === 'scegli') {
+        alert('Per favore, seleziona il numero dell\'ombrellone e un metodo di pagamento.');
+        event.preventDefault();  // Previeni il reindirizzamento alla pagina WhatsApp
+        return;  // Fermati qui se non sono stati selezionati i dati necessari
+    }
+
     // Se pagamento contante, controlla se l'utente ha inserito un importo personalizzato
     if (paymentMethod === 'cash') {
         const customAmount = document.getElementById('custom-cash').value;
@@ -443,6 +450,8 @@ document.getElementById('whatsapp-button').addEventListener('click', function() 
         const cartSummary = cart.map(item => `${item.name} ${item.variant} x${item.quantity}`).join(', ');
         const totalPrice = document.getElementById('cart-total').textContent;
         const message = `Ciao, vorrei ordinare dal mio ombrellone ${number}:   ${cartSummary} Importo totale: €${totalPrice}. ${paymentInfo}`;
+        
+        // Procedi con il reindirizzamento solo dopo che l'alert è stato chiuso
         this.href = `https://wa.me/+393207408549?text=${encodeURIComponent(message)}`; // Sostituisci con il tuo numero di WhatsApp
     } else {
         alert('Per favore, seleziona il numero dell\'ombrellone e aggiungi articoli al carrello.');
